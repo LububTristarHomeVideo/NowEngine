@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall
+
+all: main
+
+main: main.o renderer.o
+    $(CC) $(CFLAGS) -o main main.o renderer.o
+
+main.o: main.c renderer.h
+    $(CC) $(CFLAGS) -c main.c
+
+renderer.o: renderer.c renderer.h
+    $(CC) $(CFLAGS) -c renderer.c
+
+clean:
+    rm -f *.o main
